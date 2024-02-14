@@ -13,6 +13,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - run: |
+        env
     - name: Install dependencies
       run: make deps
     - name: Run check
