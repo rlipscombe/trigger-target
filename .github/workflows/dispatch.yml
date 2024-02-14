@@ -1,0 +1,19 @@
+name: "Dispatch"
+
+on:
+  repository_dispatch:
+    types:
+      - trigger-workflow
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          env | sort
+      - name: Install dependencies
+        run: make deps
+      - name: Run check
+        run: make check
